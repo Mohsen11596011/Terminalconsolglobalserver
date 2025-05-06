@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SWIFT TERMINAL :: MT103 Execution</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00FF00;
+      font-family: monospace;
+      padding: 20px;
+    }
+    .terminal {
+      border: 1px solid #00FF00;
+      padding: 20px;
+      height: 90vh;
+      overflow-y: auto;
+    }
+    .message {
+      margin: 5px 0;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>SWIFT BANKING TERMINAL</h1>
+  <div class="terminal" id="terminal">
+    <div class="message">> CONNECTING TO SWIFT NETWORK...</div>
+    <div class="message">> SENDING MT103...</div>
+    <div class="message">> REF: S003134025137908</div>
+    <div class="message">> DATE: 18.04.2025</div>
+    <div class="message">> FROM: UK ACIM LTD - GB16HBUK40118892537137</div>
+    <div class="message">> TO: PROYMED LIMITED - GB02HBUK40127691687488</div>
+    <div class="message">> BANK: HSBC UK - HBUKGB4BXXX</div>
+    <div class="message">> AMOUNT: EUR 946,600.00</div>
+    <div class="message">> STATUS: IN TRANSIT</div>
+  </div>
+
+  <script>
+    setTimeout(() => {
+      const terminal = document.getElementById("terminal");
+      terminal.innerHTML += `<div class='message'>\n> MT900 RECEIVED FROM HSBC BANK UK</div>`;
+      terminal.innerHTML += `<div class='message'>:20:S003134025137908\n:25:HSBCBANKUK\n:32A:250418EUR946600,00\n:61:CONFIRMED</div>`;
+      terminal.innerHTML += `<div class='message'>\n> TRANSACTION CONFIRMED BY RECEIVING BANK</div>`;
+      terminal.innerHTML += `<div class='message'>> STATUS: FINALIZED</div>`;
+      terminal.scrollTop = terminal.scrollHeight;
+    }, 8000);
+  </script>
+</body>
+</html>
